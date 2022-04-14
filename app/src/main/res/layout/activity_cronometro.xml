@@ -8,40 +8,32 @@
 
     <TextView
         android:id="@+id/txtCrono"
-        android:layout_width="369dp"
-        android:layout_height="103dp"
+        android:layout_width="380dp"
+        android:layout_height="100dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="50dp"
         android:text="@string/txtCrono"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="92sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnStart"
+        app:layout_constraintBottom_toTopOf="@+id/btnStartStop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnStart"
+        android:id="@+id/btnStartStop"
         android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginTop="50dp"
-        android:onClick="onClickStart"
+        android:layout_marginBottom="40dp"
+        android:onClick="onClickStartOrStop"
         android:text="@string/btnStart"
+        app:layout_constraintBottom_toTopOf="@+id/btnReset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCrono" />
-
-    <Button
-        android:id="@+id/btnStop"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="40dp"
-        android:onClick="onClickStop"
-        android:text="@string/btnStop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <Button
         android:id="@+id/btnReset"
@@ -53,6 +45,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStop" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStartStop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
