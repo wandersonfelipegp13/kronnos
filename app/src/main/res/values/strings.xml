@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Kronnos</string>
-    <string name="btnCrono">Cronômetro</string>
-    <string name="btnTemp">Temporizador</string>
-    <string name="txtCrono">0:00:00</string>
+    <string name="app_name" translatable="false">Kronnos</string>
+    <string name="btnCrono">Stopwatch</string>
+    <string name="btnTemp">Timer</string>
+    <string name="txtCrono" translatable="false">0:00:00</string>
     <string name="btnStart">Start</string>
     <string name="btnStop">Stop</string>
     <string name="btnReset">Reset</string>

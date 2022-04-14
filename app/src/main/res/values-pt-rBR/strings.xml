@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btnCrono">Cronômetro</string>
+    <string name="btnTemp">Temporizador</string>
+    <string name="btnStart">Iniciar</string>
+    <string name="btnStop">Parar</string>
+    <string name="btnReset">Reiniciar</string>
+</resources>
