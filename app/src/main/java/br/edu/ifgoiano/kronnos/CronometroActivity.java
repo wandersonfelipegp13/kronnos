@@ -13,7 +13,7 @@ import java.util.Locale;
 public class CronometroActivity extends AppCompatActivity {
 
     private int seconds = 0;
-    private boolean execution;
+    private boolean running;
     /**
      * This one refers to the action of stopping or starting.
      * 00 = stop
@@ -22,6 +22,7 @@ public class CronometroActivity extends AppCompatActivity {
     private int state = 0;
     private TextView txtCrono;
     private Button btnStartStop;
+    private Boolean wasRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +31,9 @@ public class CronometroActivity extends AppCompatActivity {
 
         if(savedInstanceState != null) {
             seconds = savedInstanceState.getInt("seconds");
-            execution = savedInstanceState.getBoolean("execution");
+            running = savedInstanceState.getBoolean("running");
             state = savedInstanceState.getInt("state");
+            wasRunning = savedInstanceState.getBoolean("wasRunning");
         }
 
         txtCrono = findViewById(R.id.txtCrono);
@@ -43,17 +45,17 @@ public class CronometroActivity extends AppCompatActivity {
     public void onClickStartOrStop(View view) {
         state++;
         if(state == 1) {
-            execution = true;
+            running = true;
             state = -1;
             btnStartStop.setText(getString(R.string.btnStop));
         } else {
-            execution = false;
-            btnStartStop.setText(getString(R.string.btnStart));
+            running = false;
+            btnStartStop.setText(getString(R.string.btnResume));
         }
     }
 
     public void onClickReset(View view) {
-        execution = false;
+        running = false;
         seconds = 0;
         btnStartStop.setText(getString(R.string.btnStart));
         state = 0;
@@ -71,9 +73,9 @@ public class CronometroActivity extends AppCompatActivity {
 
                 txtCrono.setText(time);
 
-                if(execution) {
+                if(running)
                     seconds++;
-                }
+
                 handler.postDelayed(this, 1000);
             }
         });
@@ -83,8 +85,23 @@ public class CronometroActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putInt("seconds", seconds);
-        savedInstanceState.putBoolean("execution", execution);
+        savedInstanceState.putBoolean("running", running);
         savedInstanceState.putInt("state", state);
+        savedInstanceState.putBoolean("wasRunning", wasRunning);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        wasRunning = running;
+        running = false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (wasRunning != null && wasRunning)
+            running = true;
     }
 
 }
