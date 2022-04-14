@@ -27,6 +27,13 @@ public class CronometroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cronometro);
+
+        if(savedInstanceState != null) {
+            seconds = savedInstanceState.getInt("seconds");
+            execution = savedInstanceState.getBoolean("execution");
+            state = savedInstanceState.getInt("state");
+        }
+
         txtCrono = findViewById(R.id.txtCrono);
         btnStartStop = findViewById(R.id.btnStartStop);
 
@@ -70,6 +77,14 @@ public class CronometroActivity extends AppCompatActivity {
                 handler.postDelayed(this, 1000);
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("seconds", seconds);
+        savedInstanceState.putBoolean("execution", execution);
+        savedInstanceState.putInt("state", state);
     }
 
 }
