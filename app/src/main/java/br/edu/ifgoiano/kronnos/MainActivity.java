@@ -21,4 +21,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, CronometroActivity.class);
         startActivity(intent);
     }
+
+    public void onClickTimer(View view) {
+        Intent intent = new Intent(MainActivity.this, TimerActivity.class);
+        startActivity(intent);
+    }
+
 }

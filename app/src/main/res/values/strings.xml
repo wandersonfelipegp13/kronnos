@@ -1,10 +1,34 @@
 <resources>
     <string name="app_name" translatable="false">Kronnos</string>
+
     <string name="btnCrono">Stopwatch</string>
     <string name="btnTemp">Timer</string>
-    <string name="txtCrono" translatable="false">0:00:00</string>
+
+    <string name="txtCrono" translatable="false">00:00:00</string>
     <string name="btnStart">Start</string>
     <string name="btnStop">Stop</string>
     <string name="btnReset">Reset</string>
     <string name="btnResume">Resume</string>
+
+    <string name="tvHours">Hours</string>
+    <string name="tvMinutes">Minutes</string>
+    <string name="tvSeconds">Seconds</string>
+
+    <string name="tvColon" translatable="false">:</string>
+    <string-array name="hours">
+        <item>00</item>
+        <item>01</item>
+        <item>02</item>
+    </string-array>
+    <string-array name="minutes">
+        <item>00</item>
+        <item>01</item>
+        <item>02</item>
+    </string-array>
+    <string-array name="seconds">
+        <item>00</item>
+        <item>01</item>
+        <item>02</item>
+    </string-array>
+
 </resources>

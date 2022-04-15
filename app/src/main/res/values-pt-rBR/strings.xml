@@ -2,8 +2,14 @@
 <resources>
     <string name="btnCrono">Cronômetro</string>
     <string name="btnTemp">Temporizador</string>
+
     <string name="btnStart">Iniciar</string>
     <string name="btnStop">Parar</string>
     <string name="btnReset">Reiniciar</string>
     <string name="btnResume">Retomar</string>
+
+    <string name="tvHours">Horas</string>
+    <string name="tvMinutes">Minutos</string>
+    <string name="tvSeconds">Segundos</string>
+
 </resources>
