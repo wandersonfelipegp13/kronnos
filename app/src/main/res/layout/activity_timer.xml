@@ -114,21 +114,23 @@
         app:layout_constraintTop_toBottomOf="@+id/spMins" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnStartStopTimer"
         android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:onClick="onClickStartOrStop"
         android:text="@string/btnStart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnResetTimer"
         android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        android:onClick="onClickReset"
         android:text="@string/btnReset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
