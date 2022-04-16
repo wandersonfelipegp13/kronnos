@@ -1,5 +1,6 @@
 package br.edu.ifgoiano.kronnos;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class CronometroActivity extends AppCompatActivity {
 
@@ -42,7 +44,7 @@ public class CronometroActivity extends AppCompatActivity {
 
         runTimer();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
     public void onClickStartOrStop(View view) {
@@ -85,7 +87,7 @@ public class CronometroActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putInt("seconds", seconds);
         savedInstanceState.putBoolean("running", running);

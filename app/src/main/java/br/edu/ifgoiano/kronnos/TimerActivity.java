@@ -1,16 +1,20 @@
 package br.edu.ifgoiano.kronnos;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Objects;
 
 public class TimerActivity extends AppCompatActivity {
 
@@ -40,12 +44,30 @@ public class TimerActivity extends AppCompatActivity {
         spHours = findViewById(R.id.spHours);
         spMinutes = findViewById(R.id.spMins);
         spSeconds = findViewById(R.id.spSecs);
+
+        ArrayList<String> secs = new ArrayList<>();
+        for (int i = 0; i < 60; i++)
+            secs.add(i + "");
+        ArrayAdapter<String> adapterSecs = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, secs);
+        adapterSecs.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spSeconds.setAdapter(adapterSecs);
+        spMinutes.setAdapter(adapterSecs);
+
+        ArrayList<String> hours = new ArrayList<>();
+        for (int i = 0; i < 100; i++)
+            hours.add(i + "");
+        ArrayAdapter<String> adapterHours = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, hours);
+        adapterSecs.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spHours.setAdapter(adapterHours);
+
         tvTimer = findViewById(R.id.tvTimer);
         btnStartStop = findViewById(R.id.btnStartStopTimer);
 
         runTimer();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
     public void onClickStartOrStop(View view) {
@@ -90,7 +112,7 @@ public class TimerActivity extends AppCompatActivity {
 
                 if (running && seconds > 0)
                     seconds--;
-                
+
                 if (seconds == 0) {
                     btnStartStop.setText(getString(R.string.btnStart));
                     state = 0;
@@ -103,7 +125,7 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putInt("seconds", seconds);
         savedInstanceState.putBoolean("running", running);
