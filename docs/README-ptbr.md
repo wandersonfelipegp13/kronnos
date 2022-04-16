@@ -6,4 +6,4 @@
   <br>
 </h1>
 
-Kronnos é um aplicativo Android nativo que contém um cronômetro e um temporizador. Kronnos está disponível em <a href="/../README.md">inglês</a> e português do Brasil.
+Kronnos é um aplicativo Android nativo que contém um cronômetro e um temporizador. Kronnos está disponível em <a href="https://github.com/wandersonfelipegp13/kronnos/blob/master/README.md">inglês</a> e português do Brasil.
